@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Outdoors Info</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1c1c1e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #f5f5f7;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #b1b1b1, #d4d4d4);
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background: linear-gradient(145deg, #d4d4d4, #b1b1b1);
+            transform: scale(1.05);
+        }
+
+        .card a, .card span {
+            color: #1c1c1e;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+        }
+
+        /* Hidden section styling */
+        .podcast-links {
+            display: none;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .podcast-links img {
+            width: 50px; /* Increased initial size for easier tapping */
+            height: auto;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect for logos */
+        .podcast-links img:hover {
+            transform: scale(1.15); /* Slight increase on hover */
+        }
+
+        @media(min-width: 768px) {
+            .container {
+                max-width: 600px;
+            }
+            .card a, .card span {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/HeaderLogo.png" alt="Logo" class="logo">
+
+        <div class="card">
+            <a href="https://examplelink1.com">Epic Outdoors Home Page</a>
+        </div>
+        <div class="card">
+            <a href="https://examplelink2.com">Visit Our Optics Store</a>
+        </div>
+
+        <!-- Podcast Card with Expandable Content -->
+        <div class="card" onclick="togglePodcastLinks()">
+            <span>The Epic Outdoors Podcast</span>
+            <div class="podcast-links" id="podcastLinks">
+                <a href="https://podcasts.apple.com/us/podcast/epic-outdoors-podcast/id1204967493" target="_blank">
+                    <img src="images/Podcasts_(iOS).svg.png" alt="Apple Podcasts">
+                </a>
+                <a href="https://open.spotify.com/show/5o00yCZz8acWREon0KQR8j?si=owK7YxKdSreOedT63N0pSg" target="_blank">
+                    <img src="images/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <a href="https://examplelink1.com">Instagram</a>
+        </div>
+        <div class="card">
+            <a href="https://examplelink2.com">YouTube</a>
+        </div>
+        <div class="card">
+            <a href="https://examplelink1.com">Become an Epic Outdoors Member</a>
+        </div>
+        <div class="card">
+            <a href="https://examplelink2.com">License/Application Service</a>
+        </div>
+    </div>
+
+    <script>
+        function togglePodcastLinks() {
+            var podcastLinks = document.getElementById('podcastLinks');
+            if (podcastLinks.style.display === 'none' || podcastLinks.style.display === '') {
+                podcastLinks.style.display = 'flex';
+            } else {
+                podcastLinks.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
