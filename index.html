@@ -77,6 +77,30 @@
             transform: scale(1.15); /* Slight increase on hover */
         }
 
+/* Giveaway card styles */
+.giveaway-card {
+    background-color: #EAA122;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.giveaway-card:hover {
+    background-color: #d7941c;
+    transform: scale(1.05);
+}
+
+.giveaway-card a {
+    color: #1c1c1e;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+}
+
         @media(min-width: 768px) {
             .container {
                 max-width: 600px;
@@ -95,13 +119,16 @@
             <a href="https://store.epicoutdoors.com/">Visit Our Optics Store</a>
         </div>
 
+    <!-- Giveaway Card -->
+        <div class="giveaway-card">
+            <a href="https://epicoutdoors.com/services/epic-hunt-giveaways/">Epic Hunts Giveaway</a>
+        </div>
+
         <div class="card">
             <a href="https://epicoutdoors.com/">Epic Outdoors Home Page</a>
         </div>
         
-        <div class="card">
-            <a href="https://kenetrek.io/epic">Kenetrek Black Friday Sale!</a>
-        </div>
+
 
         <div class="card" onclick="togglePodcastLinks()">
             <span>The Epic Outdoors Podcast</span>
