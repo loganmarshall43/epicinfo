@@ -34,7 +34,7 @@
             margin-bottom: 20px;
         }
 
-        .card, .giveaway-card {
+        .card {
             display: block;
             background: linear-gradient(145deg, #b1b1b1, #d4d4d4);
             border-radius: 8px;
@@ -48,21 +48,30 @@
             font-size: 18px;
         }
 
-        .card:hover, .giveaway-card:hover {
+        .card:hover {
             background: linear-gradient(145deg, #d4d4d4, #b1b1b1);
             transform: scale(1.05);
         }
 
-        /* Giveaway card styles override the background and hover state */
         .giveaway-card {
+            display: block;
             background-color: #EAA122;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            text-decoration: none;
+            color: #1c1c1e;
+            font-size: 18px;
         }
 
         .giveaway-card:hover {
             background-color: #d7941c;
+            transform: scale(1.05);
         }
 
-        /* Hidden section styling */
         .podcast-links {
             display: none;
             margin-top: 10px;
@@ -107,7 +116,6 @@
             Epic Outdoors Home Page
         </a>
 
-        <!-- Podcast Card still needs a toggle, so we'll handle it differently -->
         <div class="card" onclick="togglePodcastLinks()" style="cursor: pointer;">
             <span>The Epic Outdoors Podcast</span>
             <div class="podcast-links" id="podcastLinks">
