@@ -34,7 +34,8 @@
             margin-bottom: 20px;
         }
 
-        .card {
+        .card, .giveaway-card {
+            display: block;
             background: linear-gradient(145deg, #b1b1b1, #d4d4d4);
             border-radius: 8px;
             margin: 10px 0;
@@ -42,19 +43,23 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             font-weight: bold;
-            cursor: pointer;
+            text-decoration: none;
+            color: #1c1c1e;
+            font-size: 18px;
         }
 
-        .card:hover {
+        .card:hover, .giveaway-card:hover {
             background: linear-gradient(145deg, #d4d4d4, #b1b1b1);
             transform: scale(1.05);
         }
 
-        .card a, .card span {
-            color: #1c1c1e;
-            text-decoration: none;
-            font-size: 18px;
-            display: block;
+        /* Giveaway card styles override the background and hover state */
+        .giveaway-card {
+            background-color: #EAA122;
+        }
+
+        .giveaway-card:hover {
+            background-color: #d7941c;
         }
 
         /* Hidden section styling */
@@ -65,47 +70,22 @@
         }
 
         .podcast-links img {
-            width: 50px; /* Increased initial size for easier tapping */
+            width: 50px;
             height: auto;
             margin: 0 10px;
             cursor: pointer;
             transition: transform 0.3s ease;
         }
 
-        /* Hover effect for logos */
         .podcast-links img:hover {
-            transform: scale(1.15); /* Slight increase on hover */
+            transform: scale(1.15);
         }
-
-/* Giveaway card styles */
-.giveaway-card {
-    background-color: #EAA122;
-    border-radius: 8px;
-    margin: 10px 0;
-    padding: 15px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.giveaway-card:hover {
-    background-color: #d7941c;
-    transform: scale(1.05);
-}
-
-.giveaway-card a {
-    color: #1c1c1e;
-    text-decoration: none;
-    font-size: 18px;
-    display: block;
-}
 
         @media(min-width: 768px) {
             .container {
                 max-width: 600px;
             }
-            .card a, .card span {
+            .card, .giveaway-card {
                 font-size: 20px;
             }
         }
@@ -115,22 +95,20 @@
     <div class="container">
         <img src="images/HeaderLogo.png" alt="Logo" class="logo">
 
-     <div class="card">
-            <a href="https://store.epicoutdoors.com/">Visit Our Optics Store</a>
-        </div>
+        <a class="card" href="https://store.epicoutdoors.com/">
+            Visit Our Optics Store
+        </a>
 
-    <!-- Giveaway Card -->
-        <div class="giveaway-card">
-            <a href="https://epicoutdoors.com/services/epic-hunt-giveaways/">Epic Hunts Giveaway</a>
-        </div>
+        <a class="giveaway-card" href="https://epicoutdoors.com/services/epic-hunt-giveaways/">
+            Epic Hunts Giveaway
+        </a>
 
-        <div class="card">
-            <a href="https://epicoutdoors.com/">Epic Outdoors Home Page</a>
-        </div>
-        
+        <a class="card" href="https://epicoutdoors.com/">
+            Epic Outdoors Home Page
+        </a>
 
-
-        <div class="card" onclick="togglePodcastLinks()">
+        <!-- Podcast Card still needs a toggle, so we'll handle it differently -->
+        <div class="card" onclick="togglePodcastLinks()" style="cursor: pointer;">
             <span>The Epic Outdoors Podcast</span>
             <div class="podcast-links" id="podcastLinks">
                 <a href="https://podcasts.apple.com/us/podcast/epic-outdoors-podcast/id1204967493" target="_blank">
@@ -142,21 +120,22 @@
             </div>
         </div>
 
-        <div class="card">
-            <a href="https://www.instagram.com/epic_hunts/">Instagram</a>
-        </div>
+        <a class="card" href="https://www.instagram.com/epic_hunts/">
+            Instagram
+        </a>
 
-       <div class="card">
-            <a href="https://www.youtube.com/@EpicOutdoors">YouTube</a>
-        </div>
+        <a class="card" href="https://www.youtube.com/@EpicOutdoors">
+            YouTube
+        </a>
 
-     <div class="card">
-            <a href="https://epicoutdoors.com/membership/">Become an Epic Outdoors Member</a>
-        </div>
+        <a class="card" href="https://epicoutdoors.com/membership/">
+            Become an Epic Outdoors Member
+        </a>
 
-        <div class="card">
-            <a href="https://epicoutdoors.com/services/license-application-service/">License/Application Service</a>
-        </div>
+        <a class="card" href="https://epicoutdoors.com/services/license-application-service/">
+            License/Application Service
+        </a>
+
     </div>
 
     <script>
