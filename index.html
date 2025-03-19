@@ -59,6 +59,25 @@
             transform: scale(1.05);
         }
 
+        .big-card {
+    display: block;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 22px; /* slightly larger font size */
+}
+
+.big-card:hover {
+    transform: scale(1.05);
+}
+
+
         .giveaway-card {
             display: block;
             background-color: #EAA122;
@@ -109,6 +128,11 @@
 <body>
     <div class="container">
         <img src="images/HeaderLogo.png" alt="Logo" class="logo">
+        
+        <a class="big-card" href="https://store.epicoutdoors.com/">
+    Something Big is Coming
+</a>
+
 
         <a class="card" href="https://store.epicoutdoors.com/">
             Visit Our Optics Store
