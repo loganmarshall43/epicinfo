@@ -1,186 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Epic Outdoors Links">
-    <meta property="og:description" content="Online Directory for Epic Outdoors">
-    <meta property="og:image" content="images/thumbnail1.jpg">
-    <meta property="og:url" content="https://epictags.com/">
-    <meta property="og:type" content="website">
-    <link rel="icon" type="image/png" href="epicfavicon.png">
-    <title>Epic Outdoors Links</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Epic Outdoors Links">
+  <meta property="og:description" content="Online Directory for Epic Outdoors">
+  <meta property="og:image" content="images/thumbnail1.jpg">
+  <meta property="og:url" content="https://epictags.com/">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="epicfavicon.png">
+  <title>Epic Outdoors Links</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-        body {
-            background-color: #1c1c1e;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            color: #f5f5f7;
-        }
+    body {
+      background-color: #1c1c1e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #f5f5f7;
+    }
 
-        .container {
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            padding: 20px;
-        }
+    .container {
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      padding: 20px;
+    }
 
-        .logo {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
+    .logo {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
 
-        .card {
-            display: block;
-            background: linear-gradient(145deg, #b1b1b1, #d4d4d4);
-            border-radius: 8px;
-            margin: 10px 0;
-            padding: 15px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            font-weight: bold;
-            text-decoration: none;
-            color: #1c1c1e;
-            font-size: 18px;
-        }
+    .card {
+      display: block;
+      background: linear-gradient(145deg, #b1b1b1, #d4d4d4);
+      border-radius: 8px;
+      margin: 10px 0;
+      padding: 15px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+      text-decoration: none;
+      color: #1c1c1e;
+      font-size: 18px;
+    }
 
-        .card:hover {
-            background: linear-gradient(145deg, #d4d4d4, #b1b1b1);
-            transform: scale(1.05);
-        }
+    .card:hover {
+      background: linear-gradient(145deg, #d4d4d4, #b1b1b1);
+      transform: scale(1.05);
+    }
 
-        .big-card {
-    display: block;
-    background-color: #ff8000;
-    color: #000;
-    border-radius: 8px;
-    margin: 10px 0;
-    padding: 20px;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 22px; /* slightly larger font size */
-}
+    /* New CSS class for the Zeiss card */
+    .zeiss-card {
+      display: block;
+      background-color: #007BFF; /* Blue background */
+      color: #ffffff;          /* White text */
+      border-radius: 8px;
+      margin: 10px 0;
+      padding: 20px;           /* Increased padding for a larger appearance */
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 22px;         /* Slightly larger font size */
+    }
 
-.big-card:hover {
-    transform: scale(1.05);
-}
+    .zeiss-card:hover {
+      transform: scale(1.05);
+    }
 
+    .giveaway-card {
+      display: block;
+      background-color: #EAA122;
+      border-radius: 8px;
+      margin: 10px 0;
+      padding: 15px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+      text-decoration: none;
+      color: #1c1c1e;
+      font-size: 18px;
+    }
 
-        .giveaway-card {
-            display: block;
-            background-color: #EAA122;
-            border-radius: 8px;
-            margin: 10px 0;
-            padding: 15px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            font-weight: bold;
-            text-decoration: none;
-            color: #1c1c1e;
-            font-size: 18px;
-        }
+    .giveaway-card:hover {
+      background-color: #d7941c;
+      transform: scale(1.05);
+    }
 
-        .giveaway-card:hover {
-            background-color: #d7941c;
-            transform: scale(1.05);
-        }
+    .podcast-links {
+      display: none;
+      margin-top: 10px;
+      justify-content: center;
+    }
 
-        .podcast-links {
-            display: none;
-            margin-top: 10px;
-            justify-content: center;
-        }
+    .podcast-links img {
+      width: 50px;
+      height: auto;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
 
-        .podcast-links img {
-            width: 50px;
-            height: auto;
-            margin: 0 10px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
+    .podcast-links img:hover {
+      transform: scale(1.15);
+    }
 
-        .podcast-links img:hover {
-            transform: scale(1.15);
-        }
-
-        @media(min-width: 768px) {
-            .container {
-                max-width: 600px;
-            }
-            .card, .giveaway-card {
-                font-size: 20px;
-            }
-        }
-    </style>
+    @media(min-width: 768px) {
+      .container {
+        max-width: 600px;
+      }
+      .card, .giveaway-card {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="images/HeaderLogo.png" alt="Logo" class="logo">
-        
-        <a class="big-card" href="https://store.epicoutdoors.com/">
-    Something Big is Coming
-</a>
+  <div class="container">
+    <img src="images/HeaderLogo.png" alt="Logo" class="logo">
+    
+<!--    <a class="zeiss-card" href="https://store.epicoutdoors.com/">
+      New Zeiss SFL 50's!
+    </a>
+      -->
 
+    <a class="card" href="https://store.epicoutdoors.com/">
+      Visit Our Optics Store
+    </a>
 
-        <a class="card" href="https://store.epicoutdoors.com/">
-            Visit Our Optics Store
+    <a class="card" href="https://epicoutdoors.com/">
+      Epic Outdoors Home Page
+    </a>
+
+    <div class="card" onclick="togglePodcastLinks()" style="cursor: pointer;">
+      <span>The Epic Outdoors Podcast</span>
+      <div class="podcast-links" id="podcastLinks">
+        <a href="https://podcasts.apple.com/us/podcast/epic-outdoors-podcast/id1204967493" target="_blank">
+          <img src="images/Podcasts_(iOS).svg.png" alt="Apple Podcasts">
         </a>
-
-        <a class="card" href="https://epicoutdoors.com/">
-            Epic Outdoors Home Page
+        <a href="https://open.spotify.com/show/5o00yCZz8acWREon0KQR8j?si=owK7YxKdSreOedT63N0pSg" target="_blank">
+          <img src="images/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify">
         </a>
-
-        <div class="card" onclick="togglePodcastLinks()" style="cursor: pointer;">
-            <span>The Epic Outdoors Podcast</span>
-            <div class="podcast-links" id="podcastLinks">
-                <a href="https://podcasts.apple.com/us/podcast/epic-outdoors-podcast/id1204967493" target="_blank">
-                    <img src="images/Podcasts_(iOS).svg.png" alt="Apple Podcasts">
-                </a>
-                <a href="https://open.spotify.com/show/5o00yCZz8acWREon0KQR8j?si=owK7YxKdSreOedT63N0pSg" target="_blank">
-                    <img src="images/Spotify_Primary_Logo_RGB_Green.png" alt="Spotify">
-                </a>
-            </div>
-        </div>
-
-        <a class="card" href="https://www.instagram.com/epic_hunts/">
-            Instagram
-        </a>
-
-        <a class="card" href="https://www.youtube.com/@EpicOutdoors">
-            YouTube
-        </a>
-
-        <a class="card" href="https://epicoutdoors.com/membership/">
-            Become an Epic Outdoors Member
-        </a>
-
-        <a class="card" href="https://epicoutdoors.com/services/license-application-service/">
-            License/Application Service
-        </a>
-
+      </div>
     </div>
 
-    <script>
-        function togglePodcastLinks() {
-            var podcastLinks = document.getElementById('podcastLinks');
-            if (podcastLinks.style.display === 'none' || podcastLinks.style.display === '') {
-                podcastLinks.style.display = 'flex';
-            } else {
-                podcastLinks.style.display = 'none';
-            }
-        }
-    </script>
+    <a class="card" href="https://www.instagram.com/epic_hunts/">
+      Instagram
+    </a>
+
+    <a class="card" href="https://www.youtube.com/@EpicOutdoors">
+      YouTube
+    </a>
+
+    <a class="card" href="https://epicoutdoors.com/membership/">
+      Become an Epic Outdoors Member
+    </a>
+
+    <a class="card" href="https://epicoutdoors.com/services/license-application-service/">
+      License/Application Service
+    </a>
+  </div>
+
+  <script>
+    function togglePodcastLinks() {
+      var podcastLinks = document.getElementById('podcastLinks');
+      if (podcastLinks.style.display === 'none' || podcastLinks.style.display === '') {
+        podcastLinks.style.display = 'flex';
+      } else {
+        podcastLinks.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
