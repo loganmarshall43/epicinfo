@@ -97,6 +97,26 @@
       transform: scale(1.05);
     }
 
+    /* New green giveaway card */
+.giveaway-green-card {
+  display: block;
+  background-color: #28a745; /* Green background */
+  color: #ffffff;            /* White text */
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+}
+.giveaway-green-card:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: scale(1.05);
+}
+
+
     .podcast-links {
       display: none;
       margin-top: 10px;
@@ -128,6 +148,11 @@
 <body>
   <div class="container">
     <img src="images/HeaderLogo.png" alt="Logo" class="logo">
+
+    <a class="giveaway-green-card" href="https://epicoutdoors.com/services/epic-hunt-giveaways/">
+  Enter Epic Hunt Giveaways
+</a>
+
     
     <a class="zeiss-card" href="https://store.epicoutdoors.com/collections/zeiss">
       New Zeiss SFL 50's!
