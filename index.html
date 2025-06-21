@@ -78,6 +78,19 @@
       transform: scale(1.05);
     }
 
+    .card--alert {
+  /* override the default gradient with solid yellow */
+  background: yellow;
+  /* override the default text colour */
+  color: black;
+}
+
+/* keep the same “grow” effect on hover but keep the yellow */
+.card--alert:hover {
+  background: yellow;
+  transform: scale(1.05);
+}
+
     .giveaway-card {
       display: block;
       background-color: #EAA122;
@@ -149,10 +162,9 @@
   <div class="container">
     <img src="images/HeaderLogo.png" alt="Logo" class="logo">
 
-    <a
-  class="card"
+<a
+  class="card card--alert"
   href="https://www.trcp.org/action-alert/urge-lawmakers-to-oppose-public-land-sales/"
-  style="background-color: yellow !important; color: black !important;"
 >
   STOP THE SALE OF PUBLIC LAND!
 </a>
