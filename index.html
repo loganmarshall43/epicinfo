@@ -122,6 +122,27 @@
       justify-content: center;
     }
 
+    .store-links {
+      display: none;
+      margin-top: 12px;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .store-links a {
+      background: #1c1c1e;
+      color: #f5f5f7;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 15px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .store-links a:hover {
+      background: #3a3a3c;
+    }
+
     .podcast-links img {
       width: 50px;
       height: auto;
@@ -171,13 +192,19 @@
       EPIC SUMMER HUNTS GIVEAWAY!
     </a>
 
-    <a class="card" href="https://apps.apple.com/us/app/id6779708899">
-      Download Our iPhone App
-    </a>
-
-    <a class="card" href="https://play.google.com/store/apps/details?id=com.epicoutdoors.memberportal">
-      Download Our Android App
-    </a>
+    <!-- Smart app link: sends iPhone/iPad to the App Store and Android to
+         Google Play; desktop or unknown devices get both store buttons. -->
+    <div class="card" onclick="openAppStore()">
+      <span>Download Our App</span>
+      <div class="store-links" id="storeLinks">
+        <a href="https://apps.apple.com/us/app/id6779708899" onclick="event.stopPropagation()">
+          App Store
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.epicoutdoors.memberportal" onclick="event.stopPropagation()">
+          Google Play
+        </a>
+      </div>
+    </div>
 
     <a class="card" href="https://epicoutdoors.com/membership/">
       Become an Epic Outdoors Member
@@ -224,6 +251,24 @@
   <div id="toast"></div>
 
   <script>
+    function openAppStore() {
+      var ua = navigator.userAgent || "";
+      // iPadOS 13+ reports a Mac user agent; the touch check catches it.
+      var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+        (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+      var isAndroid = /Android/i.test(ua);
+      if (isIOS) {
+        window.location.href = "https://apps.apple.com/us/app/id6779708899";
+        return;
+      }
+      if (isAndroid) {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.epicoutdoors.memberportal";
+        return;
+      }
+      var links = document.getElementById('storeLinks');
+      links.style.display = (links.style.display === 'flex') ? 'none' : 'flex';
+    }
+
     function togglePodcastLinks() {
       var podcastLinks = document.getElementById('podcastLinks');
       podcastLinks.style.display =
