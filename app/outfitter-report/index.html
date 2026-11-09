@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Safari's Smart App Banner: OPEN when the app is on the iPhone (Safari
+       hands the app the report screen's address), GET when it isn't. -->
+  <meta name="apple-itunes-app" content="app-id=6779708899, app-argument=epicoutdoors://outfitter-report">
+  <meta property="og:title" content="Send Your Outfitter Report">
+  <meta property="og:description" content="Tell Epic Outdoors how your guided hunt went. Send your outfitter report in the Epic Outdoors app or on the member website.">
+  <meta property="og:image" content="https://epictags.com/images/thumbnail1.jpg">
+  <meta property="og:url" content="https://epictags.com/app/outfitter-report/">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="/epicfavicon.png">
+  <title>Send Your Outfitter Report</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    body {
+      background-color: #1c1c1e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #f5f5f7;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      color: #b1b1b1;
+      font-size: 15px;
+      line-height: 21px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      display: block;
+      background: linear-gradient(145deg, #b1b1b1, #d4d4d4);
+      border-radius: 8px;
+      margin: 10px 0;
+      padding: 18px 15px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+      text-decoration: none;
+      color: #1c1c1e;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      background: linear-gradient(145deg, #d4d4d4, #b1b1b1);
+      transform: scale(1.05);
+    }
+
+    .card--primary {
+      background: #f37321;
+      color: #000;
+    }
+
+    .card--primary:hover {
+      background: #d9651d;
+    }
+
+    .note {
+      color: #b1b1b1;
+      font-size: 13px;
+      line-height: 19px;
+      margin-top: 18px;
+    }
+
+    .opening {
+      color: #f5f5f7;
+      font-size: 15px;
+      margin: 0 0 14px;
+    }
+
+    .web {
+      color: #b1b1b1;
+      font-size: 14px;
+      margin-top: 22px;
+    }
+
+    .web a {
+      color: #f37321;
+    }
+
+    @media(min-width: 768px) {
+      .container {
+        max-width: 600px;
+      }
+
+      .card {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="/images/HeaderLogo.png" alt="Epic Outdoors" class="logo">
+
+    <h1>Outfitter Report</h1>
+    <p class="tagline">
+      Tell us how your guided hunt went: the outfitter, the hunt, your
+      ratings and your photos.
+    </p>
+
+    <p class="opening" id="openingNote" hidden>
+      Opening the Epic Outdoors app. If nothing happens, tap the orange button.
+    </p>
+
+    <a class="card card--primary" id="openApp" href="epicoutdoors://outfitter-report" hidden>
+      Open the report in the app
+    </a>
+
+    <a class="card" id="getIPhone" href="https://apps.apple.com/us/app/id6779708899">
+      Download for iPhone
+    </a>
+
+    <a class="card" id="getAndroid" href="https://play.google.com/store/apps/details?id=com.epicoutdoors.memberportal">
+      Download for Android
+    </a>
+
+    <p class="note" id="storeNote" hidden>
+      Taking you to the App Store...
+    </p>
+
+    <p class="note">
+      New to the app? Install it and sign in, then scan the code again, or
+      open Guided Hunts on the Home screen and tap Outfitter Reports.
+    </p>
+
+    <p class="web">
+      Rather type it on a computer?
+      <a href="https://member.epicoutdoors.com/my-stuff/outfitter-reports/new">Send it on the member website</a>
+    </p>
+  </div>
+
+  <script>
+    // The outfitter report QR code lands here. A phone with the app goes
+    // straight to the app's report screen; a phone without it goes to its
+    // store. Computers see both store buttons and the website link.
+    (function () {
+      var ua = navigator.userAgent || "";
+      // iPadOS 13+ reports a Mac user agent; the touch check catches it.
+      var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+        (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+      var isAndroid = !isIOS && /Android/i.test(ua);
+
+      var APP_STORE = "https://apps.apple.com/us/app/id6779708899";
+      var GOOGLE_PLAY = "https://play.google.com/store/apps/details?id=com.epicoutdoors.memberportal";
+
+      // Android: one intent does both. Chrome opens the app on its report
+      // screen (epicoutdoors://outfitter-report) when it's installed, and
+      // follows browser_fallback_url to Google Play when it isn't.
+      var ANDROID_INTENT = "intent://outfitter-report#Intent;scheme=epicoutdoors;" +
+        "package=com.epicoutdoors.memberportal;" +
+        "S.browser_fallback_url=" + encodeURIComponent(GOOGLE_PLAY) + ";end";
+
+      // iPhone: a web page can't tell whether the app is installed. From the
+      // app's next iPhone build on, epictags.com is one of the app's
+      // associated domains (.well-known/apple-app-site-association), so an
+      // iPhone WITH that build opens this address in the app and never loads
+      // this page. Once that build is out, set this to true: an iPhone that
+      // still lands here has no app and goes straight to the App Store.
+      var IPHONE_STRAIGHT_TO_STORE = false;
+
+      function el(id) { return document.getElementById(id); }
+
+      if (isAndroid) {
+        el("openApp").href = ANDROID_INTENT;
+        el("openApp").hidden = false;
+        el("openingNote").hidden = false;
+        el("getIPhone").hidden = true;
+        window.location.replace(ANDROID_INTENT);
+      } else if (isIOS) {
+        el("getAndroid").hidden = true;
+        if (IPHONE_STRAIGHT_TO_STORE) {
+          el("storeNote").hidden = false;
+          window.location.replace(APP_STORE);
+        } else {
+          el("openApp").hidden = false;
+        }
+      }
+    })();
+  </script>
+</body>
+
+</html>

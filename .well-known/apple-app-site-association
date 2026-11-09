@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["MUJ48JRM79.com.epicoutdoors.app"],
+        "components": [
+          {
+            "/": "/app/outfitter-report",
+            "comment": "Outfitter report QR code: opens the app's report screen"
+          },
+          {
+            "/": "/app/outfitter-report/*",
+            "comment": "The same address with its trailing slash"
+          }
+        ]
+      }
+    ]
+  }
+}
