@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Safari's Smart App Banner: OPEN when the app is on the iPhone (Safari
+       hands the app the tripod collection's address), GET when it isn't. -->
+  <meta name="apple-itunes-app" content="app-id=6779708899, app-argument=epicoutdoors://store/collection?handle=epic-optics-tripod-line">
+  <meta property="og:title" content="Black Friday: $50 Off Every Epic Tripod Combo">
+  <meta property="og:description" content="First time ever on sale. $50 off the Lite, Ultra and MAXX combos in the Epic Outdoors app, now through Cyber Monday 11/30.">
+  <meta property="og:image" content="https://epictags.com/app/tripods/black-friday.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="600">
+  <meta property="og:url" content="https://epictags.com/app/tripods/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/epicfavicon.png">
+  <title>Black Friday: $50 Off Epic Tripods</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    body {
+      background-color: #1c1c1e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #f5f5f7;
+    }
+
+    .container {
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .hero {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    h1 {
+      font-size: 23px;
+      line-height: 28px;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      color: #b1b1b1;
+      font-size: 15px;
+      line-height: 21px;
+      margin-bottom: 22px;
+    }
+
+    .card {
+      display: block;
+      background: linear-gradient(145deg, #b1b1b1, #d4d4d4);
+      border-radius: 8px;
+      margin: 10px 0;
+      padding: 18px 15px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      font-weight: bold;
+      text-decoration: none;
+      color: #1c1c1e;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      background: linear-gradient(145deg, #d4d4d4, #b1b1b1);
+      transform: scale(1.05);
+    }
+
+    .card--primary {
+      background: #f37321;
+      color: #000;
+    }
+
+    .card--primary:hover {
+      background: #d9651d;
+    }
+
+    .note {
+      color: #b1b1b1;
+      font-size: 13px;
+      line-height: 19px;
+      margin-top: 18px;
+    }
+
+    .opening {
+      color: #f5f5f7;
+      font-size: 15px;
+      margin: 0 0 14px;
+    }
+
+    .web {
+      color: #b1b1b1;
+      font-size: 14px;
+      line-height: 20px;
+      margin-top: 22px;
+    }
+
+    .web a {
+      color: #f37321;
+    }
+
+    @media(min-width: 768px) {
+      .container {
+        max-width: 600px;
+      }
+
+      .card {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <img src="black-friday.jpg" alt="Black Friday: $50 off every Epic tripod combo, first time ever on sale, through Cyber Monday 11/30" class="hero" width="1200" height="600">
+
+    <h1>$50 Off Every Epic Tripod Combo</h1>
+    <p class="tagline">
+      Lite, Ultra and MAXX, first time ever on sale. Now through Cyber
+      Monday 11/30, in the Epic Outdoors app.
+    </p>
+
+    <p class="opening" id="openingNote" hidden>
+      Opening the Epic Outdoors app. If nothing happens, tap the orange button.
+    </p>
+
+    <a class="card card--primary" id="openApp" href="epicoutdoors://store/collection?handle=epic-optics-tripod-line" hidden>
+      Shop the sale in the app
+    </a>
+
+    <a class="card" id="getIPhone" href="https://apps.apple.com/us/app/id6779708899">
+      Download for iPhone
+    </a>
+
+    <a class="card" id="getAndroid" href="https://play.google.com/store/apps/details?id=com.epicoutdoors.memberportal">
+      Download for Android
+    </a>
+
+    <p class="note" id="storeNote" hidden>
+      Taking you to the App Store...
+    </p>
+
+    <p class="note">
+      New to the app? Download it, tap Start 7-day free trial (no card
+      needed), then open the Optics Store from the Home screen.
+    </p>
+
+    <p class="web">
+      On a computer? Sign in at
+      <a href="https://member.epicoutdoors.com">member.epicoutdoors.com</a>
+      and open the Optics Store. No account yet?
+      <a href="https://member.epicoutdoors.com/join/lite">Start a free one</a>.
+    </p>
+  </div>
+
+  <script>
+    // Black Friday tripod sale link (texts, emails, posts), 11-17 to 11-30.
+    // A phone with the app opens the app's tripod collection; a phone without
+    // it goes to its store. Computers see both store buttons and the website.
+    (function () {
+      var ua = navigator.userAgent || "";
+      // iPadOS 13+ reports a Mac user agent; the touch check catches it.
+      var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+        (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+      var isAndroid = !isIOS && /Android/i.test(ua);
+
+      var APP_STORE = "https://apps.apple.com/us/app/id6779708899";
+      var GOOGLE_PLAY = "https://play.google.com/store/apps/details?id=com.epicoutdoors.memberportal";
+
+      // Android: one intent does both. Chrome opens the app on the tripod
+      // collection (epicoutdoors://store/collection?handle=...) when it's
+      // installed, and follows browser_fallback_url to Google Play when it isn't.
+      var ANDROID_INTENT = "intent://store/collection?handle=epic-optics-tripod-line#Intent;scheme=epicoutdoors;" +
+        "package=com.epicoutdoors.memberportal;" +
+        "S.browser_fallback_url=" + encodeURIComponent(GOOGLE_PLAY) + ";end";
+
+      // iPhone: a web page can't tell whether the app is installed, so it shows
+      // the open button and the download button (as /app/outfitter-report/ does
+      // until the app's next iPhone build claims epictags.com links).
+      var IPHONE_STRAIGHT_TO_STORE = false;
+
+      function el(id) { return document.getElementById(id); }
+
+      if (isAndroid) {
+        el("openApp").href = ANDROID_INTENT;
+        el("openApp").hidden = false;
+        el("openingNote").hidden = false;
+        el("getIPhone").hidden = true;
+        window.location.replace(ANDROID_INTENT);
+      } else if (isIOS) {
+        el("getAndroid").hidden = true;
+        if (IPHONE_STRAIGHT_TO_STORE) {
+          el("storeNote").hidden = false;
+          window.location.replace(APP_STORE);
+        } else {
+          el("openApp").hidden = false;
+        }
+      }
+    })();
+  </script>
+</body>
+
+</html>
